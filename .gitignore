@@ -1,0 +1,17 @@
+*.log
+*.tmp
+backups/
+node_modules/
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.pfx
+*.p12
+.credentials*
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
