@@ -1,8 +1,8 @@
 # DSH Web Launcher
 
-适用于 Windows 的轻量 DSH Web 启动器。双击即可自动检查 DeepSeek Harness 更新，并使用独立的 `web` profile 启动浏览器界面。
+DSH Web 轻量启动器，适用于 Windows系统。每次启动自动检查 DSH 最新版本，并使用独立的 `web` profile启动。
 
-> 本项目是社区启动脚本，并非 DeepSeek 官方项目。DeepSeek、DeepSeek Harness 及相关图标的权利归其各自所有者。
+> 本项目是社区启动脚本，非 DeepSeek 官方项目。DeepSeek 图标版权归其所有者拥有。
 
 ## 快速开始
 
@@ -35,23 +35,21 @@ git clone https://github.com/louishzwang/dsh-web-launcher.git
 
 DSH Web 默认监听 `127.0.0.1:3080`，并使用一次性启动 token 完成本地浏览器认证。
 
-## Windows Terminal（可选）
+## Windows Terminal（可选，推荐）
 
 在 Windows Terminal 设置中新增 Profile：
 
-- **名称**：`DSH Web Launcher`
+- **名称**：自定义，可选`DSH Web Launcher`
 - **命令行**：选择解压目录中的 `dsh-web-launcher.bat`
-- **启动目录**：选择希望 DSH 使用的工作目录
+- **启动目录**： DSH 启动后的默认工作区（建议不要设置为整个系统盘）
 - **图标**：可选择仓库中的 `deepseek-harness.ico`
-
-启动目录决定 DSH 默认操作的工作区，建议不要设置为整个系统盘。
 
 ## 启动行为
 
 每次启动时，脚本会：
 
 1. 从 DeepSeek Harness 官方 GitHub Releases 查找最新的非草稿 `dsh-v*` SemVer 版本。
-2. 本机版本相同：直接启动。
+2. 官方版本与本地版本相同时：直接启动。
 3. 官方 npm registry 存在完全相同的版本：全局更新 `@deepseek-ai/dsh` 后启动。
 4. 断网、查询超时、npm 尚未同步或更新失败：保留并启动当前可用版本。
 5. 运行 `dsh.cmd --profile web --port 3080`。
