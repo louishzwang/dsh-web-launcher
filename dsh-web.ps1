@@ -1,7 +1,7 @@
 ﻿$ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'
 
-$launcherVersion = '2.0.0'
+$launcherVersion = '2.0.1'
 $packageName = '@deepseek-ai/dsh'
 $registry = 'https://registry.npmjs.org'
 $releasesApi = 'https://api.github.com/repos/deepseek-ai/deepseek-harness/releases?per_page=10'
@@ -55,7 +55,7 @@ function Update-DshIfNeeded {
     }
 
     Write-Host "发现新版本，正在更新到 $target..."
-    & $npm install --global "--allow-scripts=$allowedScripts" "$packageName@$target" "--registry=$registry"
+    & $npm install --global "--allow-scripts=$allowedScripts" "$packageName@$target" "--registry=$registry" | Out-Host
     if ($LASTEXITCODE -ne 0) {
       Write-Warning "新版本更新失败（退出码 $LASTEXITCODE），将继续使用当前版本。"
       return (Get-DshCommand)
